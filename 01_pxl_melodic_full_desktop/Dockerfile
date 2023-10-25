@@ -35,6 +35,7 @@ RUN set -x \
     && apt-get install -y python-rosinstall python-rosinstall-generator python-wstool build-essential \
     && apt-get install -y ros-melodic-turtlebot3* \
     && apt-get install -y ros-melodic-gmapping \
+    && apt-get install -y ros-melodic-slam-toolbox \
     && apt-get install -y python-rosdep \
     && apt-get autoremove -y \
     && pip install powerline-shell \
@@ -78,6 +79,8 @@ COPY --chown=user:user ./m-explore.tar.gz /home/user/Projects/turtlebot3_extra_w
 RUN tar xzvf ./m-explore.tar.gz && rm ./m-explore.tar.gz
 COPY --chown=user:user ./turtlebot3_mas_teleop.tar.gz /home/user/Projects/turtlebot3_extra_ws/src/turtlebot3_mas_teleop.tar.gz
 RUN tar xzvf ./turtlebot3_mas_teleop.tar.gz && rm ./turtlebot3_mas_teleop.tar.gz
+COPY --chown=user:user ./toolbox_demo.tar.gz /home/user/Projects/turtlebot3_extra_ws/src/toolbox_demo.tar.gz
+RUN tar xzvf ./toolbox_demo.tar.gz && rm ./toolbox_demo.tar.gz
 WORKDIR /home/user/Projects/turtlebot3_extra_ws/
 RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; cd /home/user/Projects/turtlebot3_extra_ws; catkin_make'
 RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; cd /home/user/Projects/turtlebot3_extra_ws; catkin_make'

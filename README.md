@@ -55,3 +55,15 @@ To use multiple bash shells in the container, It's advised to either work with
 ```
 
 **Pro-tip: Learn to use `tmux`. It's awesome!**
+
+## SLAM Toolbox with Turtlebot3
+
+Launch a turlebot in a house world with slam_toolbox and rviz
+```bash
+   $ start_turtlebot3_slam_toolbox_demo.sh
+```
+Open a second terminal to control the turtlebot
+```bash
+   $ start_turtlebot3_teleop.sh
+```
+

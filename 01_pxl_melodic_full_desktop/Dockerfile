@@ -14,6 +14,8 @@ ENV NVIDIA_VISIBLE_DEVICES \
 ENV NVIDIA_DRIVER_CAPABILITIES \
     ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
 
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 4B63CF8FDE49746E98FA01DDAD19BAB3CBF125EA
+
 RUN set -x \
         && apt-get update \
         && apt-get upgrade -y  \
